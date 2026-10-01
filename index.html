@@ -6,13 +6,14 @@
   <title>wonni.crochet — Cozy Adoption Boutique</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-color: #FFF5F6;
       --card-bg: #FFFFFF;
       --primary-pink: #F8BBD0;
       --accent-pink: #F48FB1;
+      --cream-color: #E8A87C; /* 따뜻하고 또렷한 크림 피치/버터 톤 */
       --soft-brown: #795548;
       --deep-brown: #4E342E;
       --text-muted: #8D6E63;
@@ -39,11 +40,17 @@
       background: linear-gradient(180deg, #FFE4E8 0%, var(--bg-color) 100%);
     }
 
+    /* 로고 브랜드 스타일링 */
     header h1 {
       font-family: 'Fredoka', cursive;
-      font-size: 2.8rem;
+      font-size: 3rem;
       color: var(--deep-brown);
       margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    header h1 .highlight-crochet {
+      color: #E09F67; /* .crochet 부분 감성적인 크림/버터 톤 포인트 */
     }
 
     header p {
@@ -254,7 +261,7 @@
 <body>
 
   <header>
-    <h1>wonni.crochet</h1>
+    <h1>wonni<span class="highlight-crochet">.crochet</span></h1>
     <p>Handmade Crochet Plushies Ready for Adoption 🧸✨</p>
   </header>
 
@@ -365,7 +372,6 @@
   </footer>
 
   <script>
-    // 🌟 YOUR PAYPAL USERNAME CONNECTED!
     const paypalUsername = "wonni.crochet";
 
     function openModal(id) {
@@ -385,7 +391,6 @@
       window.open(paypalUrl, '_blank');
     }
 
-    // Close modal when clicking outside
     window.onclick = function(event) {
       if (event.target.classList.contains('modal-overlay')) {
         event.target.style.display = 'none';
