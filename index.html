@@ -1,401 +1,608 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wonni.crochet — Cozy Adoption Boutique</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #FFF5F6;
-      --card-bg: #FFFFFF;
-      --primary-pink: #F8BBD0;
-      --accent-pink: #F48FB1;
-      --cream-color: #E8A87C; /* 따뜻하고 또렷한 크림 피치/버터 톤 */
-      --soft-brown: #795548;
-      --deep-brown: #4E342E;
-      --text-muted: #8D6E63;
-      --shadow: 0 10px 25px rgba(78, 52, 46, 0.08);
-      --radius: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marsh & Custom - 입양 하우스</title>
+    <!-- 구글 폰트 (부드러운 한글 폰트 적용) -->
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF8F5;
+            --card-bg: #FFFFFF;
+            --primary-color: #DDA899;
+            --text-main: #4A403A;
+            --text-sub: #7D736C;
+            --accent-color: #E8B4A2;
+            --border-radius: 20px;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Nunito', sans-serif;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
 
-    body {
-      background-color: var(--bg-color);
-      color: var(--deep-brown);
-      padding-bottom: 60px;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-    header {
-      text-align: center;
-      padding: 50px 20px 30px;
-      background: linear-gradient(180deg, #FFE4E8 0%, var(--bg-color) 100%);
-    }
+        /* 헤더 & 네비게이션 */
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #EFEAE6;
+        }
 
-    /* 로고 브랜드 스타일링 */
-    header h1 {
-      font-family: 'Fredoka', cursive;
-      font-size: 3rem;
-      color: var(--deep-brown);
-      margin-bottom: 8px;
-      display: inline-block;
-    }
+        .logo {
+            font-family: 'Gaegu', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
 
-    header h1 .highlight-crochet {
-      color: #E09F67; /* .crochet 부분 감성적인 크림/버터 톤 포인트 */
-    }
+        nav button {
+            background: none;
+            border: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-left: 25px;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
 
-    header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-    }
+        nav button.active, nav button:hover {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+        /* 공통 컨테이너 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-    .catalog {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
+        .page-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-    }
+        .page-section.active {
+            display: block;
+        }
 
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px rgba(78, 52, 46, 0.12);
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .card-img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      background-color: #F8ECEE;
-    }
+        /* 스토리 & 브랜드 메시지 Banner */
+        .story-banner {
+            background-color: #F5ECE5;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .card-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
+        .story-banner p.highlight {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #8C6255;
+            margin-bottom: 8px;
+        }
 
-    .card-title {
-      font-family: 'Fredoka', cursive;
-      font-size: 1.6rem;
-      color: var(--deep-brown);
-      margin-bottom: 8px;
-    }
+        .story-banner p.sub {
+            font-size: 0.98rem;
+            color: var(--text-sub);
+        }
 
-    .card-price {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--soft-brown);
-      margin-bottom: 12px;
-    }
+        /* 말쉬 페이지 */
+        .hero-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    .card-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 20px;
-      flex-grow: 1;
-    }
+        .hero-title h1 {
+            font-family: 'Gaegu', cursive;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
 
-    .btn-adopt {
-      background-color: var(--primary-pink);
-      color: var(--deep-brown);
-      border: none;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      width: 100%;
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
+        .hero-title p {
+            color: var(--text-sub);
+            font-size: 1.1rem;
+        }
 
-    .btn-adopt:hover {
-      background-color: var(--accent-pink);
-    }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 50px;
+        }
 
-    /* MODAL STYLES */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(78, 52, 46, 0.4);
-      backdrop-filter: blur(4px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      padding: 20px;
-    }
+        .img-card {
+            background: #EAE3DC;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 320px;
+            color: var(--text-sub);
+            position: relative;
+        }
 
-    .modal-content {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      max-width: 650px;
-      width: 100%;
-      max-height: 90vh;
-      overflow-y: auto;
-      padding: 30px;
-      position: relative;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
+        .img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--soft-brown);
-      cursor: pointer;
-    }
+        .desc-box h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
 
-    .gallery {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      scroll-snap-type: x mandatory;
-    }
+        .desc-box p {
+            margin-bottom: 15px;
+            color: var(--text-sub);
+        }
 
-    .gallery img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 12px;
-      scroll-snap-align: start;
-      flex-shrink: 0;
-      background: #F8ECEE;
-    }
+        /* 크기 비교 섹션 */
+        .comparison-section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            margin-bottom: 50px;
+            border: 1px solid #EFEAE6;
+        }
 
-    .form-group {
-      margin-bottom: 18px;
-    }
+        .comparison-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
 
-    .form-group label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--deep-brown);
-    }
+        .comp-list {
+            list-style: none;
+            margin-top: 15px;
+        }
 
-    .form-group select, .form-group input {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #F3E5F5;
-      border-radius: 10px;
-      font-size: 0.95rem;
-      outline: none;
-      background: #FFF;
-    }
+        .comp-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-sub);
+        }
 
-    .chart-btn {
-      display: inline-block;
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: var(--soft-brown);
-      text-decoration: underline;
-      cursor: pointer;
-    }
+        .comp-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
 
-    .chart-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 1100;
-      justify-content: center;
-      align-items: center;
-    }
+        /* 커스텀 페이지 */
+        .custom-builder {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid #EFEAE6;
+        }
 
-    .chart-modal img {
-      max-width: 90%;
-      max-height: 80vh;
-      border-radius: 12px;
-    }
+        .option-group {
+            margin-bottom: 20px;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+        .option-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
 
-    footer a {
-      color: var(--soft-brown);
-      font-weight: 700;
-      text-decoration: none;
-    }
-  </style>
+        .option-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .opt-btn {
+            padding: 8px 16px;
+            border: 1px solid #DCD3CC;
+            border-radius: 20px;
+            background: #FFF;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .opt-btn.active {
+            background: var(--primary-color);
+            color: #FFF;
+            border-color: var(--primary-color);
+        }
+
+        .adopt-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary-color);
+            color: #FFF;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+        }
+
+        .adopt-btn:hover {
+            background: #C89586;
+        }
+
+        /* 리뷰 섹션 */
+        .review-section {
+            margin-top: 60px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid #EFEAE6;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .write-review-btn {
+            padding: 8px 16px;
+            background: var(--bg-color);
+            border: 1px solid #DCD3CC;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .review-card {
+            border-bottom: 1px solid #EFEAE6;
+            padding: 20px 0;
+        }
+
+        .review-card:last-child {
+            border-bottom: none;
+        }
+
+        .review-badge {
+            display: inline-block;
+            background: #F2ECE7;
+            color: #7D6B60;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        .review-user {
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .review-text {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        /* 리뷰 작성 모달 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #FFF;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .modal-content input, .modal-content select, .modal-content textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .custom-builder {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>wonni<span class="highlight-crochet">.crochet</span></h1>
-    <p>Handmade Crochet Plushies Ready for Adoption 🧸✨</p>
-  </header>
+    <!-- 헤더 -->
+    <header>
+        <div class="logo" onclick="showPage('marsh')">Marsh & Co.</div>
+        <nav>
+            <button id="nav-marsh" class="active" onclick="showPage('marsh')">말쉬 입양하기</button>
+            <button id="nav-custom" onclick="showPage('custom')">나만의 플러쉬 만들기</button>
+        </nav>
+    </header>
 
-  <div class="container">
-    <div class="catalog">
-      <!-- MARSHIE CARD -->
-      <div class="card" onclick="openModal('marshieModal')">
-        <img src="marshie_1.jpg" alt="Marshie" class="card-img" onerror="this.src='https://via.placeholder.com/300x280/F8ECEE/795548?text=Marshie'">
-        <div class="card-body">
-          <div class="card-title">Marshie</div>
-          <div class="card-price">$45.00 USD</div>
-          <div class="card-desc">Our signature cozy plushie companion. Soft, squishy, and ready to find a forever home! Free worldwide shipping included.</div>
-          <button class="btn-adopt">Adopt Marshie</button>
+    <div class="container">
+        
+        <!-- 브랜드 핵심 스토리 (공통 메인 멘트) -->
+        <div class="story-banner">
+            <p class="highlight">모든 플러쉬는 사랑을 담아, 직접 뜹니다.</p>
+            <p class="sub">부드러운 털을 이용하여 만질 때 기분좋은 작은 온기를 선물해 드릴게요.</p>
         </div>
-      </div>
 
-      <!-- CUSTOM COMPANION CARD -->
-      <div class="card" onclick="openModal('customModal')">
-        <img src="custom_1.jpg" alt="Custom Companion" class="card-img" onerror="this.src='https://via.placeholder.com/300x280/F8ECEE/795548?text=Custom+Companion'">
-        <div class="card-body">
-          <div class="card-title">Custom Companion</div>
-          <div class="card-price">$55.00 USD</div>
-          <div class="card-desc">Customize your own companion! Choose species, fur pattern, and eye colors to create a unique plushie. Free worldwide shipping.</div>
-          <button class="btn-adopt">Customize & Adopt</button>
+        <!-- PAGE 1: 말쉬 전용 페이지 -->
+        <div id="page-marsh" class="page-section active">
+            
+            <div class="hero-title">
+                <h1>Marsh House</h1>
+                <p>Your Everyday Companion — 당신의 가장 가까운 곳에서 함께하는 말쉬.</p>
+            </div>
+
+            <!-- 메인 말쉬 연출 샷 -->
+            <div class="grid-2">
+                <div class="img-card">
+                    <!-- 데스크 연출 이미지 위치 -->
+                    <p style="text-align: center; padding: 20px;">[ 노트북 옆 조용히 앉아있는 말쉬 사진 ]</p>
+                </div>
+                <div class="desc-box">
+                    <h2>Always With You</h2>
+                    <p>일하고, 공부하고, 하루를 채워가는 모든 순간.</p>
+                    <p>말쉬는 조용히 당신 곁에 앉아 당신의 모든 시간에 함께할게요. 지친 일상 속, 눈길을 돌릴 때마다 작은 온기와 위로가 되어 드릴게요.</p>
+                    <button class="adopt-btn" onclick="alert('말쉬를 입양하기 위한 가족 신청서로 이동합니다.')">말쉬 입양 신청하기</button>
+                </div>
+            </div>
+
+            <!-- 귀 & 형태 비교 섹션 -->
+            <div class="comparison-section">
+                <h3>MARSH SIZE & SHAPE GUIDE</h3>
+                <p style="text-align: center; color: var(--text-sub); margin-bottom: 15px;">
+                    나만의 말쉬, 형태와 귀 모양을 비교해 보세요!
+                </p>
+                <div class="img-card" style="min-height: 200px; margin-bottom: 20px;">
+                    <p>[ 세 아이가 나란히 모여 있는 사진 ]</p>
+                </div>
+                <ul class="comp-list">
+                    <li><b>Body Size:</b> 세 아이 모두 몸통 크기 및 전체적인 포근한 볼륨감은 동일하게 제작됩니다.</li>
+                    <li><b>Height Check:</b> 귀의 모양(쫑긋한 귀, 클래식한 귀)에 따라 전체적인 세로 높이에 약간의 차이가 있습니다.</li>
+                    <li><b>Rabbit (토끼 / 블루 아이):</b> 위로 쫑긋 솟은 귀 덕분에 전체적인 존재감이 더욱 커 보여요.</li>
+                    <li><b>Cat & Bear (핑크/초록 아이):</b> 앙증맞은 귀 비율로 아담하고 동글동글한 매력이 한층 살아납니다.</li>
+                </ul>
+            </div>
+
+            <!-- 리뷰 영역 -->
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>입양 후기 (가족들의 이야기)</h3>
+                    <button class="write-review-btn" onclick="openReviewModal('Marsh')">후기 작성하기</button>
+                </div>
+                <div id="marsh-reviews">
+                    <div class="review-card">
+                        <span class="review-badge">실구매자 인증 | 토끼 / 스노우 화이트 / 블루 눈</span>
+                        <div class="review-user">김*희 님의 이야기 ★★★★★</div>
+                        <div class="review-text">노트북 옆에 두었는데 공부할 때마다 빤히 바라봐줘서 너무 힘이 돼요! 촉감도 부드러워서 자꾸 손이 가요.</div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-      </div>
+
+
+        <!-- PAGE 2: 커스텀 페이지 -->
+        <div id="page-custom" class="page-section">
+            
+            <div class="hero-title">
+                <h1>Custom Plush</h1>
+                <p>세상에서 단 하나뿐인 나의 애착 인형 제작하기</p>
+            </div>
+
+            <div class="custom-builder">
+                <!-- 커스텀 옵션 선택 -->
+                <div class="builder-options">
+                    <div class="option-group">
+                        <label>1. 동물 귀 형태 선택</label>
+                        <div class="option-buttons">
+                            <button class="opt-btn active" onclick="selectOpt(this, 'animal')">토끼</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'animal')">고양이</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'animal')">곰</button>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label>2. 부드러운 털 색상 선택</label>
+                        <div class="option-buttons">
+                            <button class="opt-btn active" onclick="selectOpt(this, 'fur')">스노우 화이트</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'fur')">미드나잇 블랙</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'fur')">라이트 베이지</button>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <label>3. 눈동자 색상 선택</label>
+                        <div class="option-buttons">
+                            <button class="opt-btn active" onclick="selectOpt(this, 'eye')">아쿠아 블루</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'eye')">루비 핑크</button>
+                            <button class="opt-btn" onclick="selectOpt(this, 'eye')">에메랄드 그린</button>
+                        </div>
+                    </div>
+
+                    <button class="adopt-btn" onclick="alert('나만의 커스텀 플러쉬 입양 신청이 완료되었습니다!')">나만의 아이 입양하기</button>
+                </div>
+
+                <!-- 실시간 선택 요약 -->
+                <div class="builder-preview" style="display: flex; flex-direction: column; justify-content: center; align-items: center; background: #FAF8F5; border-radius: 15px; padding: 20px;">
+                    <div class="img-card" style="width: 100%; min-height: 220px; margin-bottom: 15px;">
+                        <p>[ 커스텀 조합 미리보기 ]</p>
+                    </div>
+                    <p style="font-weight: bold; color: var(--primary-color);">입양할 조합 안내</p>
+                    <p id="custom-summary-text" style="color: var(--text-sub); text-align: center; margin-top: 5px;">
+                        토끼 / 스노우 화이트 / 아쿠아 블루
+                    </p>
+                </div>
+            </div>
+
+            <!-- 커스텀 리뷰 영역 -->
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>커스텀 입양 후기</h3>
+                    <button class="write-review-btn" onclick="openReviewModal('Custom')">후기 작성하기</button>
+                </div>
+                <div id="custom-reviews">
+                    <div class="review-card">
+                        <span class="review-badge">실구매자 인증 | 고양이 / 미드나잇 블랙 / 루비 핑크</span>
+                        <div class="review-user">이*진 님의 이야기 ★★★★★</div>
+                        <div class="review-text">검은 털에 핑크 눈 조합으로 주문했는데 생각했던 느낌 그대로 너무 예쁘게 완성이 되어 왔어요! 정성이 느껴져서 볼 때마다 기분이 좋아집니다.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-  </div>
 
-  <!-- MARSHIE MODAL -->
-  <div class="modal-overlay" id="marshieModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('marshieModal')">&times;</button>
-      <h2 style="font-family:'Fredoka'; margin-bottom: 15px;">Adopt Marshie ($45.00)</h2>
-      <div class="gallery">
-        <img src="marshie_1.jpg" onerror="this.src='https://via.placeholder.com/200/F8ECEE/795548?text=Marshie+1'">
-        <img src="marshie_2.jpg" onerror="this.src='https://via.placeholder.com/200/F8ECEE/795548?text=Marshie+2'">
-        <img src="marshie_3.jpg" onerror="this.src='https://via.placeholder.com/200/F8ECEE/795548?text=Marshie+3'">
-      </div>
-      <p style="margin-bottom: 20px; color: var(--text-muted);">
-        Every Marshie is handmade with extra love. Comes with an adoption certificate and free tracked international shipping (K-Packet).
-      </p>
-      <button class="btn-adopt" onclick="checkout('45USD')">Proceed to PayPal Checkout ($45.00)</button>
+    <!-- 리뷰 작성 모달 -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <h3>후기 작성하기 (실구매자 전용)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sub); margin-bottom: 15px;">
+                가족이 된 아이의 입양 후기를 남겨주세요.
+            </p>
+            <input type="text" id="rev-name" placeholder="작성자 이름">
+            <select id="rev-fur">
+                <option value="스노우 화이트">털 색상: 스노우 화이트</option>
+                <option value="미드나잇 블랙">털 색상: 미드나잇 블랙</option>
+                <option value="라이트 베이지">털 색상: 라이트 베이지</option>
+            </select>
+            <select id="rev-eye">
+                <option value="아쿠아 블루">눈 색상: 아쿠아 블루</option>
+                <option value="루비 핑크">눈 색상: 루비 핑크</option>
+                <option value="에메랄드 그린">눈 색상: 에메랄드 그린</option>
+            </select>
+            <textarea id="rev-text" rows="4" placeholder="만질 때 느껴지는 감촉이나 데스크 위 아이의 모습을 자유롭게 적어주세요."></textarea>
+            <div class="modal-actions">
+                <button onclick="closeReviewModal()" style="padding: 8px 15px; border: none; background: #EEE; border-radius: 8px; cursor: pointer;">취소</button>
+                <button onclick="submitReview()" style="padding: 8px 15px; border: none; background: var(--primary-color); color: #FFF; border-radius: 8px; cursor: pointer;">등록하기</button>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- CUSTOM COMPANION MODAL -->
-  <div class="modal-overlay" id="customModal">
-    <div class="modal-content">
-      <button class="modal-close" onclick="closeModal('customModal')">&times;</button>
-      <h2 style="font-family:'Fredoka'; margin-bottom: 15px;">Custom Companion ($55.00)</h2>
-      <div class="gallery">
-        <img src="custom_1.jpg" onerror="this.src='https://via.placeholder.com/200/F8ECEE/795548?text=Custom+1'">
-        <img src="custom_2.jpg" onerror="this.src='https://via.placeholder.com/200/F8ECEE/795548?text=Custom+2'">
-      </div>
+    <script>
+        let currentTarget = 'Marsh';
+        let customSelection = { animal: '토끼', fur: '스노우 화이트', eye: '아쿠아 블루' };
 
-      <div class="form-group">
-        <label>Species</label>
-        <select id="species">
-          <option>Cat</option>
-          <option>Bunny</option>
-          <option>Dog</option>
-          <option>Lop-Eared Bunny</option>
-        </select>
-      </div>
+        // 페이지 전환
+        function showPage(pageName) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('nav button').forEach(el => el.classList.remove('active'));
 
-      <div class="form-group">
-        <label>Fur Pattern & Color</label>
-        <select id="furColor">
-          <option>Solid Milk White</option>
-          <option>Calico Patch</option>
-          <option>Choco Brown</option>
-          <option>Dusty Pink</option>
-        </select>
-        <span class="chart-btn" onclick="openChart('furChart')">View Fur Color Chart</span>
-      </div>
+            document.getElementById('page-' + pageName).classList.add('active');
+            document.getElementById('nav-' + pageName).classList.add('active');
+            window.scrollTo(0, 0);
+        }
 
-      <div class="form-group">
-        <label>Eye Color</label>
-        <select id="eyeColor">
-          <option>Black Safety Eyes</option>
-          <option>Amber Brown</option>
-          <option>Pastel Blue</option>
-          <option>Heterochromia (Custom)</option>
-        </select>
-        <span class="chart-btn" onclick="openChart('eyeChart')">View Eye Color Chart</span>
-      </div>
+        // 옵션 선택
+        function selectOpt(btn, category) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">
-        *For special request details, please DM us on Instagram <a href="https://instagram.com/wonni.crochet" target="_blank">@wonni.crochet</a> with your order name!
-      </p>
+            customSelection[category] = btn.innerText;
+            document.getElementById('custom-summary-text').innerText = 
+                `${customSelection.animal} / ${customSelection.fur} / ${customSelection.eye}`;
+        }
 
-      <button class="btn-adopt" onclick="checkout('55USD')">Proceed to PayPal Checkout ($55.00)</button>
-    </div>
-  </div>
+        // 리뷰 모달 열기/닫기
+        function openReviewModal(target) {
+            currentTarget = target;
+            document.getElementById('reviewModal').style.display = 'flex';
+        }
 
-  <!-- COLOR CHART POPUPS -->
-  <div class="chart-modal" id="furChart" onclick="this.style.display='none'">
-    <img src="fur_chart.png" alt="Fur Color Chart" onerror="alert('Please place fur_chart.png in the project folder.')">
-  </div>
-  <div class="chart-modal" id="eyeChart" onclick="this.style.display='none'">
-    <img src="eye_chart.png" alt="Eye Color Chart" onerror="alert('Please place eye_chart.png in the project folder.')">
-  </div>
+        function closeReviewModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+        }
 
-  <footer>
-    <p>© wonni.crochet. All rights reserved.</p>
-    <p>Contact us on Instagram: <a href="https://instagram.com/wonni.crochet" target="_blank">@wonni.crochet</a></p>
-  </footer>
+        // 리뷰 등록
+        function submitReview() {
+            const name = document.getElementById('rev-name').value || '익명';
+            const fur = document.getElementById('rev-fur').value;
+            const eye = document.getElementById('rev-eye').value;
+            const text = document.getElementById('rev-text').value;
 
-  <script>
-    const paypalUsername = "wonni.crochet";
+            if (!text) {
+                alert('후기 내용을 입력해 주세요!');
+                return;
+            }
 
-    function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
+            const reviewHtml = `
+                <div class="review-card">
+                    <span class="review-badge">실구매자 인증 | ${fur} / ${eye}</span>
+                    <div class="review-user">${name} 님의 이야기 ★★★★★</div>
+                    <div class="review-text">${text}</div>
+                </div>
+            `;
 
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
+            if (currentTarget === 'Marsh') {
+                document.getElementById('marsh-reviews').insertAdjacentHTML('afterbegin', reviewHtml);
+            } else {
+                document.getElementById('custom-reviews').insertAdjacentHTML('afterbegin', reviewHtml);
+            }
 
-    function openChart(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function checkout(amount) {
-      const paypalUrl = `https://paypal.me/${paypalUsername}/${amount}`;
-      window.open(paypalUrl, '_blank');
-    }
-
-    window.onclick = function(event) {
-      if (event.target.classList.contains('modal-overlay')) {
-        event.target.style.display = 'none';
-      }
-    }
-  </script>
+            closeReviewModal();
+            document.getElementById('rev-text').value = '';
+            alert('따뜻한 입양 후기가 등록되었습니다!');
+        }
+    </script>
 </body>
 </html>
