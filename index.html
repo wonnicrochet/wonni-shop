@@ -1,673 +1,995 @@
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wonni | Handmade Crochet Plushies</title>
-    <title>wonni.crochet | Plushie Adoption Center</title>
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-            --bg-color: #FAF6F0;
-            /* 로고 맞춤 핑크 & 브라운 메인 팔레트 */
-            --bg-pastel-pink: #FCE3E9;     /* 로고 핑크 바탕색 */
-            --bg-warm-cream: #FAF6F0;      /* 본문 연크림 배경 */
---card-bg: #FFFFFF;
-            --accent-warm: #E8D8CE;
-            --accent-pink: #F4E3E3;
-            --text-main: #4A3E3D;
-            --text-sub: #7A6C6B;
-            --primary-btn: #C5A089;
-            --primary-btn-hover: #B38E77;
-            --shadow-soft: 0 10px 25px rgba(165, 140, 130, 0.08);
-            --radius-large: 24px;
-            --radius-small: 12px;
-            --main-pink: #F7B5C6;          /* 로고 상징 핑크 */
-            --pink-accent: #E58C9E;        /* 포인트 핑크 */
-            --text-dark: #4A3B37;          /* 로고 폰트 다크 브라운 */
-            --text-sub: #7A6965;           /* 내추럴 브라운 보조 문구 */
-            --cream-border: #F0D3DA;
-            --radius-large: 28px;
-            --radius-small: 16px;
-            --shadow-pink: 0 12px 30px rgba(229, 140, 158, 0.15);
-}
-
-* {
-@@ -31,361 +33,441 @@
-
-body {
-font-family: 'Quicksand', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            background-color: var(--bg-warm-cream);
-            color: var(--text-dark);
-line-height: 1.6;
-}
-
-        /* Header */
-        /* Header Navigation */
-header {
-            background-color: rgba(250, 246, 240, 0.95);
-            backdrop-filter: blur(10px);
-            background-color: rgba(252, 227, 233, 0.9);
-            backdrop-filter: blur(12px);
-position: sticky;
-top: 0;
-z-index: 100;
-            padding: 20px 40px;
-            padding: 16px 40px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-            border-bottom: 1px solid var(--accent-warm);
-            border-bottom: 2px solid var(--cream-border);
-}
-
-        .logo {
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wonni.crochet — Handcrafted Plushies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#FAF8F5',
+                            card: '#FFFFFF',
+                            primary: '#DDA899',
+                            primaryHover: '#C99384',
+                            accent: '#8B9A46',
+                            textDark: '#4A3E3D',
+                            textMuted: '#8C7B79',
+                            softPink: '#FCEEE9',
+                            softGreen: '#EBF0E6',
+                            softYellow: '#FFF8E7',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Fredoka', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
         }
-
-        .logo-text {
-font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
-            font-size: 26px;
-font-weight: 600;
-            color: var(--text-main);
-            color: var(--text-dark);
-text-decoration: none;
-            letter-spacing: 1px;
-            letter-spacing: -0.5px;
-}
-
-        .logo span {
-            color: #D9A0A0;
-        .logo-text span {
-            color: var(--pink-accent);
-}
-
-nav a {
-            margin-left: 30px;
-            margin-left: 25px;
-text-decoration: none;
-color: var(--text-sub);
-font-weight: 600;
-font-size: 15px;
-            transition: color 0.2s ease;
-            transition: color 0.2s;
-}
-
-nav a:hover {
-            color: var(--primary-btn);
-            color: var(--pink-accent);
-}
-
-/* Hero Banner */
-.hero {
-text-align: center;
-padding: 60px 20px 40px;
-            max-width: 800px;
-            margin: 0 auto;
-            background: linear-gradient(180deg, var(--bg-pastel-pink) 0%, var(--bg-warm-cream) 100%);
+    </script>
+    <style>
+        body {
+            background-color: #FAF8F5;
+            color: #4A3E3D;
+            font-family: 'Nunito', sans-serif;
+            overflow-x: hidden;
         }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: #FFFFFF;
-            color: var(--pink-accent);
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-.hero h1 {
-font-family: 'Fredoka', sans-serif;
-            font-size: 42px;
-            font-size: 40px;
-            color: var(--text-dark);
-margin-bottom: 12px;
-            color: var(--text-main);
-}
-
-.hero p {
-            font-size: 18px;
-            font-size: 17px;
-color: var(--text-sub);
-            max-width: 600px;
-            margin: 0 auto;
-}
-
-        .badge {
-            display: inline-block;
-            background-color: var(--accent-pink);
-            color: #C17C7C;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: 0.5px;
-        }
-
-        /* Main Container */
-        /* Container */
-.container {
-max-width: 1100px;
-margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section-title {
+        h1, h2, h3, h4, .font-heading {
             font-family: 'Fredoka', sans-serif;
-            font-size: 26px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: var(--text-main);
-            padding: 20px 20px 60px;
-}
-
-        /* Product Grid */
-        .product-grid {
-        /* Adoption Cards Section */
-        .grid {
-display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            margin-top: 20px;
-}
-
-        /* Product Card */
-        .product-card {
-        .adoption-card {
-background: var(--card-bg);
-border-radius: var(--radius-large);
-            padding: 24px;
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            padding: 28px;
-            box-shadow: var(--shadow-pink);
-            border: 2px solid var(--cream-border);
-display: flex;
-flex-direction: column;
-            transition: transform 0.3s ease;
-}
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 35px rgba(165, 140, 130, 0.12);
-        .adoption-card:hover {
-            transform: translateY(-8px);
-}
-
-        .img-container {
-        .card-img {
-width: 100%;
-height: 320px;
-            background-color: #F7F3EE;
-            object-fit: cover;
-border-radius: var(--radius-small);
-            overflow: hidden;
-            background-color: var(--bg-pastel-pink);
-margin-bottom: 20px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-}
-
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
-
-        .product-title {
-        .card-title {
-font-family: 'Fredoka', sans-serif;
-            font-size: 22px;
-            font-size: 24px;
-            color: var(--text-dark);
-margin-bottom: 8px;
-            color: var(--text-main);
-}
-
-        .product-desc {
-        .card-desc {
-font-size: 14px;
-color: var(--text-sub);
-            margin-bottom: 16px;
-            flex-grow: 1;
-            margin-bottom: 20px;
-}
-
-        .product-details {
-            background: var(--bg-color);
-        /* Specification Info Box */
-        .spec-box {
-            background-color: #FAF4F5;
-padding: 12px 16px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-font-size: 13px;
-            color: var(--text-sub);
-            color: var(--text-dark);
-            margin-bottom: 20px;
-}
-
-        .product-details div {
-        .spec-row {
-display: flex;
-justify-content: space-between;
-margin-bottom: 4px;
-}
-
-        .product-details div:last-child {
-        .spec-row:last-child {
-margin-bottom: 0;
-}
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        /* Form Option Controls */
-        .option-group {
-            margin-bottom: 16px;
-}
-
-        .price {
-            font-size: 24px;
-        .option-group label {
-            display: block;
-            font-size: 13px;
-font-weight: 700;
-            color: var(--text-main);
-            color: var(--text-dark);
-            margin-bottom: 6px;
-}
-
-        .shipping-tag {
-        .option-group select {
-            width: 100%;
-            padding: 10px 14px;
-            border-radius: 10px;
-            border: 1.5px solid var(--cream-border);
-            background-color: #FFFFFF;
-            font-family: 'Quicksand', sans-serif;
-            font-size: 14px;
-            color: var(--text-dark);
-            outline: none;
-            cursor: pointer;
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(221, 168, 153, 0.18);
         }
-
-        .option-group select:focus {
-            border-color: var(--pink-accent);
+        .page-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        .price-tag {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .shipping-badge {
-font-size: 12px;
-            color: #9A8A88;
-            background: #F0ECE7;
-            padding: 4px 8px;
-            border-radius: 6px;
-            background-color: #E2F0D9;
-            color: #386629;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-}
-
-        /* Buttons */
-        .btn-paypal {
-        /* PayPal Button Style */
-        .btn-adopt {
-width: 100%;
-background-color: #FFC439;
-            color: #003087;
-            color: #2C2E2F;
-border: none;
-            padding: 14px;
-            padding: 16px;
-border-radius: 30px;
-            font-size: 16px;
-font-weight: 700;
-            font-size: 15px;
-cursor: pointer;
-display: flex;
-align-items: center;
-justify-content: center;
-            gap: 8px;
-            transition: background-color 0.2s ease;
-            gap: 10px;
-            transition: opacity 0.2s;
-            margin-top: auto;
-}
-
-        .btn-paypal:hover {
-            background-color: #F2BA31;
-        .btn-adopt:hover {
-            opacity: 0.9;
-}
-
-        /* About Section */
-        .about-section {
-            background-color: var(--card-bg);
-            border-radius: var(--radius-large);
-            padding: 40px;
-            margin-bottom: 80px;
-            box-shadow: var(--shadow-soft);
-        /* Custom Notice Box */
-        .dm-notice {
-            background-color: var(--bg-pastel-pink);
-            border: 1.5px dashed var(--pink-accent);
-            border-radius: var(--radius-small);
-            padding: 20px;
-text-align: center;
-            margin-top: 50px;
-}
-
-        .about-section h2 {
-        .dm-notice h3 {
-font-family: 'Fredoka', sans-serif;
-            color: var(--text-main);
-            margin-bottom: 16px;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-}
-
-        .about-section p {
-            max-width: 650px;
-            margin: 0 auto;
-        .dm-notice p {
-            font-size: 14px;
-color: var(--text-sub);
-            font-size: 15px;
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
         }
-
-        .dm-notice a {
-            color: var(--pink-accent);
-            font-weight: 700;
-            text-decoration: none;
-}
-
-/* Footer */
-footer {
-text-align: center;
-padding: 40px 20px;
-            background-color: var(--bg-pastel-pink);
-            border-top: 2px solid var(--cream-border);
-color: var(--text-sub);
-font-size: 14px;
-            border-top: 1px solid var(--accent-warm);
+        ::-webkit-scrollbar-thumb {
+            background: #DDA899;
+            border-radius: 4px;
         }
-
-        footer p {
-            margin-bottom: 8px;
-}
-
-@media (max-width: 600px) {
-            header {
-                padding: 15px 20px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            header { padding: 15px 20px; }
-            .hero h1 { font-size: 30px; }
-}
-</style>
+    </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-softPink selection:text-brand-primary">
 
-    <!-- Navigation Header -->
-    <!-- Header -->
-<header>
-        <a href="#" class="logo">wonni<span>.</span></a>
-        <div class="logo-container">
-            <a href="#" class="logo-text">wonni.crochet<span>♥</span></a>
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 bg-brand-bg/90 backdrop-blur-md border-b border-brand-primary/10">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" onclick="showPage('home')" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-full bg-brand-softPink flex items-center justify-center text-brand-primary text-xl font-bold group-hover:scale-105 transition-transform">
+                    🧶
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-xl tracking-wide text-brand-textDark block">wonni.crochet</span>
+                    <span class="text-[10px] text-brand-textMuted tracking-widest uppercase block -mt-1">Handmade Plushies</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <button onclick="showPage('reviews')" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white border border-brand-primary/20 text-brand-textDark hover:bg-brand-softPink transition flex items-center gap-1.5 shadow-sm">
+                    ⭐ Reviews
+                </button>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white hover:opacity-90 transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fab fa-instagram text-sm"></i>
+                    <span>Instagram DM</span>
+                </a>
+            </div>
         </div>
-<nav>
-            <a href="#shop">Shop</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#adopt">Adopt</a>
-            <a href="#custom">Custom Order</a>
-</nav>
-</header>
+    </header>
 
-<!-- Hero Banner -->
-<section class="hero">
-        <span class="badge">100% HANDMADE WITH LOVE</span>
-        <h1>Soft, Fluffy & Cozy Companions</h1>
-        <p>Hand-crafted crochet plushies made with premium fluffy yarn to bring warmth and joy to your space.</p>
-        <span class="hero-badge">🐾 Welcome to Plushie Adoption Center</span>
-        <h1>Adopt Your New Companion</h1>
-        <p>Every single plushie is lovingly handcrafted stitch-by-stitch in South Korea. Find a warm, fluffy friend to bring joy into your everyday life! ♡</p>
-</section>
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6">
 
-    <!-- Shop Container -->
-    <main class="container" id="shop">
-        <h2 class="section-title">Adopt a Plushie</h2>
-    <!-- Main Adoption Section -->
-    <main class="container" id="adopt">
-        <div class="grid">
+        <!-- 1. HOME PAGE -->
+        <section id="page-home" class="page-transition space-y-8">
+            <!-- Hero Welcome -->
+            <div class="text-center py-6 px-4 bg-white rounded-3xl border border-brand-primary/10 custom-shadow">
+                <span class="inline-block px-3 py-1 bg-brand-softPink text-brand-primary text-xs font-bold rounded-full mb-3">✨ Soft & Squishy Companions</span>
+                <h1 class="text-3xl md:text-4xl font-heading font-bold text-brand-textDark mb-3">Meet Your New Handmade Best Friend</h1>
+                <p class="text-brand-textMuted text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                    Introducing <strong>Marshie</strong> (Marshmallow + Plushie: soft and squishy like a marshmallow) and our fully customizable adoption service tailored just for you.
+                </p>
+            </div>
 
-            <!-- ITEM 1: Marshie (Fixed White Plushie) -->
-            <div class="adoption-card">
-                <img src="./marshie.jpg" alt="Marshie Plushie" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=80'">
-                <h2 class="card-title">Marshie ☁️</h2>
-                <p class="card-desc">Our signature snowy white plushie. Pure, ultra-soft, and always ready for warm hugs.</p>
-
-                <div class="spec-box">
-                    <div class="spec-row"><span>Fur Color:</span> <strong>Snow White (Fixed)</strong></div>
-                    <div class="spec-row"><span>Cat Spec:</span> <strong>19 cm / 50g</strong></div>
-                    <div class="spec-row"><span>Bunny Spec:</span> <strong>20 cm / 53g</strong></div>
+            <!-- Product Selection Cards -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1: Marshie -->
+                <div onclick="showPage('marshie')" class="group cursor-pointer bg-white rounded-3xl p-5 border-2 border-transparent hover:border-brand-primary/30 custom-shadow hover:-translate-y-1 transition-all">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-brand-softPink mb-4">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Marshie Plushie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-primary shadow-sm">
+                            Ready to Adopt
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h2 class="font-heading font-bold text-2xl text-brand-textDark group-hover:text-brand-primary transition">Marshie</h2>
+                            <p class="text-xs text-brand-textMuted">The Original Marshmallow Friend</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="font-heading font-bold text-xl text-brand-primary">$45</span>
+                            <span class="block text-[10px] text-green-600 font-semibold">Free Worldwide Shipping</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brand-textMuted line-clamp-2 mb-4 leading-relaxed">
+                        Your everyday companion — Marshie stays closely by your side. Hand-knitted with super soft fuzzy yarn.
+                    </p>
+                    <div class="w-full py-2.5 rounded-xl bg-brand-softPink text-brand-primary font-bold text-xs text-center group-hover:bg-brand-primary group-hover:text-white transition">
+                        View Marshie Details →
+                    </div>
                 </div>
 
-        <div class="product-grid">
-            <!-- Product Item 1 (Your Cat Plushie) -->
-            <div class="product-card">
-                <div class="img-container">
-                    <img src="./IMG_5561.jpg" alt="Fluffy White Kitty Plushie" onerror="this.src='https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=80'">
-                <!-- Option Selection -->
-                <div class="option-group">
-                    <label for="marshie-species">1. Choose Animal Type</label>
-                    <select id="marshie-species">
-                        <option value="Cat">Cat (19 cm, 50g)</option>
-                        <option value="Bunny">Bunny (20 cm, 53g)</option>
-                    </select>
-</div>
-                <h3 class="product-title">Fluffy White Kitten</h3>
-                <p class="product-desc">An ultra-soft, fluffy handmade kitten with mesmerizing sparkly pink eyes. Extra huggable and soft to the touch.</p>
-                
-                <div class="product-details">
-                    <div><span>Height:</span> <strong>18 cm</strong></div>
-                    <div><span>Width:</span> <strong>11 cm</strong></div>
-                    <div><span>Material:</span> <strong>Faux Fur Yarn</strong></div>
-
-                <div class="option-group">
-                    <label for="marshie-eye">2. Choose Glitter Eye Color[cite: 6]</label>
-                    <select id="marshie-eye">
-                        <option value="Baby Pink">Baby Pink[cite: 6]</option>
-                        <option value="Hot Pink">Hot Pink[cite: 6]</option>
-                        <option value="Lemon Yellow">Lemon Yellow[cite: 6]</option>
-                        <option value="Bronze Brown">Bronze Brown[cite: 6]</option>
-                        <option value="Dark Brown">Dark Brown[cite: 6]</option>
-                        <option value="Light Green">Light Green[cite: 6]</option>
-                        <option value="Emerald Green">Emerald Green[cite: 6]</option>
-                        <option value="Aqua Blue">Aqua Blue[cite: 6]</option>
-                        <option value="Purple">Purple[cite: 6]</option>
-                        <option value="Silver">Silver[cite: 6]</option>
-                    </select>
-</div>
-
-                <div class="price-row">
-                    <span class="price">$38.00 USD</span>
-                    <span class="shipping-tag">Worldwide Shipping</span>
-                <div class="price-tag">
-                    <span>$45.00 USD</span>
-                    <span class="shipping-badge">Free Worldwide Shipping ✈️</span>
-</div>
-
-                <!-- PayPal Checkout Link Button -->
-                <button class="btn-paypal" onclick="handleBuyNow('Fluffy White Kitten', '$38.00')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.77.77 0 0 1 .761-.643h6.586c2.518 0 4.417.65 5.21 1.78.718 1.022.75 2.392.093 4.07-.013.033-.028.066-.042.099-.958 2.336-2.923 3.65-5.842 3.65H9.378l-.893 5.662c-.042.272-.275.473-.55.473z"/>
-                    </svg>
-                    Pay with PayPal
-                <button class="btn-adopt" onclick="adoptPlushie('Marshie', 45.00, 'marshie-species', null, 'marshie-eye')">
-                    <span>Adopt Marshie via PayPal</span>
-</button>
-</div>
-
-            <!-- Product Item 2 (Placeholder example for future products) -->
-            <div class="product-card">
-                <div class="img-container">
-                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80" alt="Cozy Bear Plushie">
-            <!-- ITEM 2: Full Custom Plushie -->
-            <div class="adoption-card" id="custom">
-                <img src="./custom.jpg" alt="Custom Plushie" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=600&q=80'">
-                <h2 class="card-title">Custom Companion ✨</h2>
-                <p class="card-desc">Design your own special companion! Choose your favorite animal type, fur color, and eye color combination.</p>
-
-                <div class="spec-box">
-                    <div class="spec-row"><span>Cat / Dog:</span> <strong>19 cm / 50g</strong></div>
-                    <div class="spec-row"><span>Bunny / Lop-Eared:</span> <strong>20 cm / 53g</strong></div>
-                    <div class="spec-row"><span>Fur Mixing:</span> <strong>Available upon request</strong></div>
+                <!-- Card 2: Custom Order -->
+                <div onclick="showPage('custom')" class="group cursor-pointer bg-white rounded-3xl p-5 border-2 border-transparent hover:border-brand-primary/30 custom-shadow hover:-translate-y-1 transition-all">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-brand-softGreen mb-4">
+                        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=800&q=80" alt="Custom Plushie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-brand-accent shadow-sm">
+                            100% Bespoke
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h2 class="font-heading font-bold text-2xl text-brand-textDark group-hover:text-brand-primary transition">Custom Order</h2>
+                            <p class="text-xs text-brand-textMuted">Design Your Dream Plushie</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="font-heading font-bold text-xl text-brand-primary">$55</span>
+                            <span class="block text-[10px] text-green-600 font-semibold">Free Worldwide Shipping</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brand-textMuted line-clamp-2 mb-4 leading-relaxed">
+                        Choose from 4 animals (Cat, Puppy, Rabbit, Lop-eared Rabbit), 6 fur colors, and 10 eye colors!
+                    </p>
+                    <div class="w-full py-2.5 rounded-xl bg-brand-softGreen text-brand-accent font-bold text-xs text-center group-hover:bg-brand-accent group-hover:text-white transition">
+                        Start Customizing →
+                    </div>
                 </div>
-
-                <!-- Option Selection -->
-                <div class="option-group">
-                    <label for="custom-species">1. Choose Animal Type</label>
-                    <select id="custom-species">
-                        <option value="Cat">Cat</option>
-                        <option value="Bunny">Bunny</option>
-                        <option value="Dog">Dog</option>
-                        <option value="Lop-Eared Bunny">Lop-Eared Bunny</option>
-                    </select>
-                </div>
-
-                <div class="option-group">
-                    <label for="custom-fur">2. Choose Fur Color (Mixing Allowed)[cite: 7]</label>
-                    <select id="custom-fur">
-                        <option value="Snow White">Snow White[cite: 7]</option>
-                        <option value="Light Beige">Light Beige[cite: 7]</option>
-                        <option value="Mocha Brown">Mocha Brown[cite: 7]</option>
-                        <option value="Mixed Brown">Mixed Brown[cite: 7]</option>
-                        <option value="Midnight Black">Midnight Black[cite: 7]</option>
-                        <option value="Rainbow">Rainbow[cite: 7]</option>
-                    </select>
-</div>
-                <h3 class="product-title">Cozy Cream Bear</h3>
-                <p class="product-desc">A cute pastel teddy bear crafted with ultra-plush velvet yarn. Perfect desk companion or gift for loved ones.</p>
-                
-                <div class="product-details">
-                    <div><span>Height:</span> <strong>15 cm</strong></div>
-                    <div><span>Width:</span> <strong>10 cm</strong></div>
-                    <div><span>Material:</span> <strong>Velvet Chenille Yarn</strong></div>
-
-                <div class="option-group">
-                    <label for="custom-eye">3. Choose Glitter Eye Color[cite: 6]</label>
-                    <select id="custom-eye">
-                        <option value="Baby Pink">Baby Pink[cite: 6]</option>
-                        <option value="Hot Pink">Hot Pink[cite: 6]</option>
-                        <option value="Lemon Yellow">Lemon Yellow[cite: 6]</option>
-                        <option value="Bronze Brown">Bronze Brown[cite: 6]</option>
-                        <option value="Dark Brown">Dark Brown[cite: 6]</option>
-                        <option value="Light Green">Light Green[cite: 6]</option>
-                        <option value="Emerald Green">Emerald Green[cite: 6]</option>
-                        <option value="Aqua Blue">Aqua Blue[cite: 6]</option>
-                        <option value="Purple">Purple[cite: 6]</option>
-                        <option value="Silver">Silver[cite: 6]</option>
-                    </select>
-</div>
-
-                <div class="price-row">
-                    <span class="price">$32.00 USD</span>
-                    <span class="shipping-tag">Worldwide Shipping</span>
-                <div class="price-tag">
-                    <span>$55.00 USD</span>
-                    <span class="shipping-badge">Free Worldwide Shipping ✈️</span>
-</div>
-
-                <button class="btn-paypal" onclick="handleBuyNow('Cozy Cream Bear', '$32.00')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944 3.72a.77.77 0 0 1 .761-.643h6.586c2.518 0 4.417.65 5.21 1.78.718 1.022.75 2.392.093 4.07-.013.033-.028.066-.042.099-.958 2.336-2.923 3.65-5.842 3.65H9.378l-.893 5.662c-.042.272-.275.473-.55.473z"/>
-                    </svg>
-                    Pay with PayPal
-                <button class="btn-adopt" onclick="adoptPlushie('Custom Companion', 55.00, 'custom-species', 'custom-fur', 'custom-eye')">
-                    <span>Adopt Custom via PayPal</span>
-</button>
-</div>
-
-</div>
-
-        <!-- About Section -->
-        <section class="about-section" id="about">
-            <h2>About wonni</h2>
-            <p>Welcome to <strong>wonni</strong>! Every single plushie is lovingly handcrafted stitch-by-stitch in South Korea using high-quality yarns. We focus on soft textures, cozy pastel tones, and unique designs to bring a little bit of comfort into your daily life.</p>
+            </div>
         </section>
-        <!-- DM Notice Box -->
-        <div class="dm-notice">
-            <h3>💌 Want Special Animal Types or Custom Fur Combinations?</h3>
-            <p>If you wish to order an animal type or fur color combination that isn't listed in the options above, please send us a Direct Message on Instagram!</p>
-            <p style="margin-top: 8px;"><a href="https://instagram.com/wonnI.crochet" target="_blank">👉 DM us on Instagram @wonni.crochet</a></p>
+
+        <!-- 2. MARSHIE DETAIL PAGE -->
+        <section id="page-marshie" class="page-transition space-y-8 hidden">
+            <!-- Top Navigation Bar -->
+            <div class="flex items-center justify-between bg-white/80 backdrop-blur-sm rounded-2xl p-3 border border-brand-primary/10 shadow-sm">
+                <button onclick="showPage('home')" class="text-xs font-bold text-brand-textMuted hover:text-brand-primary flex items-center gap-1.5 transition">
+                    ← Back to Home
+                </button>
+                <button onclick="showPage('reviews')" class="text-xs font-bold text-brand-textDark hover:text-brand-primary flex items-center gap-1 transition">
+                    ⭐ View Reviews (4.98/5.0)
+                </button>
+            </div>
+
+            <!-- TOP SECTION: GALLERY (LEFT) + BUY/PAYPAL AREA (RIGHT) -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow grid md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Left Column: Carousel Gallery with Arrows, Dots, Thumbnails -->
+                <div class="space-y-3">
+                    <div class="relative aspect-square rounded-2xl overflow-hidden bg-brand-softPink shadow-inner group">
+                        <img id="marshie-main-img" src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Marshie Front" class="w-full h-full object-cover transition-all duration-300">
+                        
+                        <!-- Carousel Left Arrow -->
+                        <button onclick="prevCarousel('marshie')" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-brand-textDark flex items-center justify-center shadow-md transition">
+                            ❮
+                        </button>
+                        <!-- Carousel Right Arrow -->
+                        <button onclick="nextCarousel('marshie')" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 hover:bg-white text-brand-textDark flex items-center justify-center shadow-md transition">
+                            ❯
+                        </button>
+
+                        <!-- Carousel Dot Indicators -->
+                        <div id="marshie-dots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-black/20 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                            <span class="w-2 h-2 rounded-full bg-white transition-all"></span>
+                            <span class="w-2 h-2 rounded-full bg-white/50 transition-all"></span>
+                            <span class="w-2 h-2 rounded-full bg-white/50 transition-all"></span>
+                        </div>
+                    </div>
+
+                    <!-- Horizontal Thumbnails -->
+                    <div class="grid grid-cols-3 gap-2">
+                        <img onclick="setCarousel('marshie', 0)" src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=300&q=80" alt="Thumb 1" class="marshie-thumb aspect-square rounded-xl object-cover cursor-pointer border-2 border-brand-primary transition">
+                        <img onclick="setCarousel('marshie', 1)" src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=300&q=80" alt="Thumb 2" class="marshie-thumb aspect-square rounded-xl object-cover cursor-pointer border-2 border-transparent hover:border-brand-primary/50 transition opacity-70 hover:opacity-100">
+                        <img onclick="setCarousel('marshie', 3)" src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=300&q=80" alt="Thumb 3" class="marshie-thumb aspect-square rounded-xl object-cover cursor-pointer border-2 border-transparent hover:border-brand-primary/50 transition opacity-70 hover:opacity-100">
+                    </div>
+                </div>
+
+                <!-- Right Column: Product Overview & Immediate PayPal Adoption -->
+                <div class="space-y-5">
+                    <div>
+                        <span class="text-xs font-bold text-brand-primary tracking-wider uppercase bg-brand-softPink px-3 py-1 rounded-full">Ready to Adopt</span>
+                        <h1 class="text-3xl font-heading font-bold text-brand-textDark mt-2">Marshie</h1>
+                        <p class="text-xs text-brand-textMuted mt-1">"Your Everyday Companion — Marshie, staying closely by your side."</p>
+                    </div>
+
+                    <!-- Price Tag -->
+                    <div class="p-4 bg-brand-softPink/40 rounded-2xl border border-brand-primary/10 flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-heading font-bold text-brand-primary">$45</span>
+                            <span class="text-xs text-brand-textMuted ml-1">USD</span>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 font-bold text-xs rounded-full">
+                            🚚 Free Worldwide Shipping
+                        </span>
+                    </div>
+
+                    <!-- Option 1: Ear Line Selection -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">1. Ear Line</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button type="button" onclick="selectMarshieEar('Rabbit', this)" class="marshie-ear-btn active p-3 rounded-2xl border-2 border-brand-primary bg-brand-softPink/30 text-left transition">
+                                <div class="font-bold text-xs text-brand-textDark">🐰 Rabbit</div>
+                                <div class="text-[10px] text-brand-textMuted">Long floppy bunny ears</div>
+                            </button>
+                            <button type="button" onclick="selectMarshieEar('Cat', this)" class="marshie-ear-btn p-3 rounded-2xl border-2 border-gray-200 text-left hover:border-brand-primary/40 transition">
+                                <div class="font-bold text-xs text-brand-textDark">🐱 Cat</div>
+                                <div class="text-[10px] text-brand-textMuted">Cute perky cat ears</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Option 2: Fur Color (Fixed) -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">2. Fur Color (Fixed)</label>
+                        <div class="p-2.5 rounded-xl border-2 border-brand-primary/30 bg-brand-softPink/20 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-4 h-4 rounded-full border border-gray-300 bg-white shadow-sm flex-shrink-0"></span>
+                                <span class="font-bold text-xs text-brand-textDark">Snow White</span>
+                            </div>
+                            <span class="text-[10px] text-brand-primary font-semibold">✨ Classic Marshmallow Fur</span>
+                        </div>
+                    </div>
+
+                    <!-- Option 3: Eye Color (10 Color Options) -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">3. Eye Color (Select 1 of 10)</label>
+                        <div id="marshie-eye-options-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Direct PayPal Checkout Button -->
+                    <div class="space-y-2 pt-2 border-t border-brand-primary/10">
+                        <button onclick="openMarshiePaypalModal()" class="w-full py-4 bg-[#FFC439] hover:bg-[#F2BA32] text-[#2C2E2F] font-bold rounded-2xl transition shadow-lg flex items-center justify-center gap-2 text-base">
+                            <i class="fab fa-paypal text-blue-900 text-xl"></i> Adopt Marshie with PayPal — $45
+                        </button>
+                        <p class="text-[11px] text-center text-brand-textMuted">
+                            🔒 Instant secure payment. Free tracked airmail shipping included.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOWER SECTION: DETAILED STORY, SPECS, & VERTICAL GALLERY FEED -->
+            <div class="space-y-6 pt-4 border-t border-brand-primary/10">
+                <div class="text-center">
+                    <h2 class="font-heading font-bold text-2xl text-brand-textDark">Marshie Story & Details</h2>
+                    <p class="text-xs text-brand-textMuted">Scroll down to learn more about your marshmallow companion</p>
+                </div>
+
+                <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow space-y-4">
+                    <h3 class="font-heading font-bold text-lg text-brand-textDark">What makes Marshie special?</h3>
+                    <p class="text-xs md:text-sm text-brand-textMuted leading-relaxed">
+                        Marshie gets its name from <strong>Marshmallow + Plushie</strong>. Created to be soft and squishy like a marshmallow, each piece is painstakingly crocheted using premium fluffy fur yarn.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center pt-2">
+                        <div class="p-3 bg-brand-bg rounded-2xl">
+                            <span class="block text-[10px] text-brand-textMuted uppercase font-bold">Height</span>
+                            <span class="font-heading font-bold text-brand-primary text-sm">~14-16 cm</span>
+                        </div>
+                        <div class="p-3 bg-brand-bg rounded-2xl">
+                            <span class="block text-[10px] text-brand-textMuted uppercase font-bold">Weight</span>
+                            <span class="font-heading font-bold text-brand-primary text-sm">~85 grams</span>
+                        </div>
+                        <div class="p-3 bg-brand-bg rounded-2xl">
+                            <span class="block text-[10px] text-brand-textMuted uppercase font-bold">Material</span>
+                            <span class="font-heading font-bold text-brand-primary text-sm">Fuzzy Fur</span>
+                        </div>
+                        <div class="p-3 bg-brand-bg rounded-2xl">
+                            <span class="block text-[10px] text-brand-textMuted uppercase font-bold">Shipping</span>
+                            <span class="font-heading font-bold text-green-600 text-sm">Free Worldwide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vertical Detailed Photo Feed -->
+                <div class="space-y-4">
+                    <h3 class="font-heading font-bold text-lg text-brand-textDark">Detailed Gallery Feed</h3>
+                    <div class="rounded-3xl overflow-hidden bg-white border border-brand-primary/10 custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1000&q=80" alt="Marshie Detail 1" class="w-full object-cover">
+                        <p class="p-3 text-center text-xs text-brand-textMuted italic">Side profile showcasing the squishy cheek proportions.</p>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden bg-white border border-brand-primary/10 custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=1000&q=80" alt="Marshie Detail 2" class="w-full object-cover">
+                        <p class="p-3 text-center text-xs text-brand-textMuted italic">Super soft plushie texture up close.</p>
+                    </div>
+                    <div class="rounded-3xl overflow-hidden bg-white border border-brand-primary/10 custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=1000&q=80" alt="Marshie Detail 3" class="w-full object-cover">
+                        <p class="p-3 text-center text-xs text-brand-textMuted italic">Fits comfortably in the palm of your hand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CUSTOM DETAIL PAGE -->
+        <section id="page-custom" class="page-transition space-y-8 hidden">
+            <!-- Top Navigation Bar -->
+            <div class="flex items-center justify-between bg-white/80 backdrop-blur-sm rounded-2xl p-3 border border-brand-primary/10 shadow-sm">
+                <button onclick="showPage('home')" class="text-xs font-bold text-brand-textMuted hover:text-brand-primary flex items-center gap-1.5 transition">
+                    ← Back to Home
+                </button>
+                <button onclick="showPage('reviews')" class="text-xs font-bold text-brand-textDark hover:text-brand-primary flex items-center gap-1 transition">
+                    ⭐ View Reviews (4.98/5.0)
+                </button>
+            </div>
+
+            <!-- TOP SECTION: LIVE BUILDER/PREVIEW (LEFT) + BUILDER OPTIONS & PAYPAL (RIGHT) -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow grid md:grid-cols-2 gap-8 items-start">
+                
+                <!-- Left Column: Dynamic Live Preview Canvas & Gallery Carousel -->
+                <div class="space-y-4">
+                    <div class="relative aspect-square rounded-3xl overflow-hidden bg-brand-bg border border-brand-primary/10 shadow-inner flex flex-col items-center justify-center p-6 text-center">
+                        <!-- Preview Plushie Visual Avatar -->
+                        <div id="builder-avatar" class="w-40 h-40 rounded-full flex items-center justify-center text-7xl shadow-inner transition-all duration-300 relative my-auto" style="background-color: #FFFFFF;">
+                            <span id="builder-animal-emoji">🐱</span>
+                            <!-- Eye color preview overlay -->
+                            <div class="absolute flex gap-5 top-1/2 -translate-y-2">
+                                <div id="builder-eye-left" class="w-3.5 h-3.5 rounded-full border border-black/20 shadow-sm" style="background-color: #C0C0C0;"></div>
+                                <div id="builder-eye-right" class="w-3.5 h-3.5 rounded-full border border-black/20 shadow-sm" style="background-color: #C0C0C0;"></div>
+                            </div>
+                        </div>
+
+                        <div class="w-full pt-3 border-t border-brand-primary/10 mt-auto">
+                            <span id="builder-summary" class="font-heading font-bold text-sm text-brand-textDark block">Cat — Snow White / Silver Eyes</span>
+                            <span class="text-[11px] text-green-600 font-semibold">Live Customized Preview</span>
+                        </div>
+                    </div>
+
+                    <!-- Reference Animal Photo Thumbnails -->
+                    <div class="grid grid-cols-4 gap-2">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=200&q=80" alt="Lop Rabbit Ref" class="aspect-square rounded-xl object-cover border border-brand-primary/20">
+                        <img src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=200&q=80" alt="Rabbit Ref" class="aspect-square rounded-xl object-cover border border-brand-primary/20">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=200&q=80" alt="Cat Ref" class="aspect-square rounded-xl object-cover border border-brand-primary/20">
+                        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=200&q=80" alt="Puppy Ref" class="aspect-square rounded-xl object-cover border border-brand-primary/20">
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Customization Controls + Top PayPal Buy Button -->
+                <div class="space-y-5">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent tracking-wider uppercase bg-brand-softGreen px-3 py-1 rounded-full">100% Custom Handmade</span>
+                        <h1 class="text-3xl font-heading font-bold text-brand-textDark mt-2">Custom Order</h1>
+                        <p class="text-xs text-brand-textMuted mt-1">Design your personalized plushie companion right here</p>
+                    </div>
+
+                    <!-- Price Tag -->
+                    <div class="p-3.5 bg-brand-softGreen/40 rounded-2xl border border-brand-accent/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-3xl font-heading font-bold text-brand-accent">$55</span>
+                            <span class="text-xs text-brand-textMuted ml-1">USD</span>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-700 font-bold text-xs rounded-full">
+                            🚚 Free Worldwide Shipping
+                        </span>
+                    </div>
+
+                    <!-- Selection 1: Animal Type (4 Options) -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">1. Animal (4 Options)</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button" onclick="selectAnimal('Cat', '🐱', this)" class="animal-btn active p-2.5 rounded-xl border-2 border-brand-primary bg-brand-softPink/30 font-bold text-xs text-brand-textDark flex items-center justify-center gap-1.5">
+                                <span>🐱</span> Cat
+                            </button>
+                            <button type="button" onclick="selectAnimal('Puppy', '🐶', this)" class="animal-btn p-2.5 rounded-xl border-2 border-gray-200 hover:border-brand-primary/50 font-bold text-xs text-brand-textDark flex items-center justify-center gap-1.5">
+                                <span>🐶</span> Puppy
+                            </button>
+                            <button type="button" onclick="selectAnimal('Rabbit', '🐰', this)" class="animal-btn p-2.5 rounded-xl border-2 border-gray-200 hover:border-brand-primary/50 font-bold text-xs text-brand-textDark flex items-center justify-center gap-1.5">
+                                <span>🐰</span> Rabbit
+                            </button>
+                            <button type="button" onclick="selectAnimal('Lop-eared Rabbit', '🐇', this)" class="animal-btn p-2.5 rounded-xl border-2 border-gray-200 hover:border-brand-primary/50 font-bold text-xs text-brand-textDark flex items-center justify-center gap-1.5">
+                                <span>🐇</span> Lop Rabbit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Selection 2: Fur Color (6 Options) -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">2. Fur Color (6 Color Chart)</label>
+                        <div id="fur-options-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Selection 3: Eye Color (10 Options) -->
+                    <div class="space-y-1.5">
+                        <label class="block text-xs font-bold text-brand-textDark uppercase">3. Eye Color (All 10 Options)</label>
+                        <div id="eye-options-grid" class="grid grid-cols-2 sm:grid-cols-5 gap-1.5">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Direct PayPal Checkout Button -->
+                    <div class="space-y-2 pt-2 border-t border-brand-primary/10">
+                        <button onclick="openCustomPaypalModal()" class="w-full py-4 bg-[#FFC439] hover:bg-[#F2BA32] text-[#2C2E2F] font-bold rounded-2xl transition shadow-lg flex items-center justify-center gap-2 text-base">
+                            <i class="fab fa-paypal text-blue-900 text-xl"></i> Pay with PayPal — $55
+                        </button>
+                        <p class="text-[11px] text-center text-brand-textMuted">
+                            🔒 Ships worldwide for free. Custom hand-knitted upon order.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOWER SECTION: ANIMAL LINEUP PROFILES & INSTAGRAM DM PHOTO REQUEST NOTICE -->
+            <div class="space-y-6 pt-4 border-t border-brand-primary/10">
+                <div class="text-center">
+                    <h2 class="font-heading font-bold text-2xl text-brand-textDark">Animal Lineup Profiles</h2>
+                    <p class="text-xs text-brand-textMuted">Explore specifications and photo details for each animal type</p>
+                </div>
+
+                <!-- 1. Lop-eared Rabbit -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow space-y-4">
+                    <div class="flex items-center gap-3 border-b border-brand-primary/10 pb-3">
+                        <span class="text-3xl">🐇</span>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-textDark">1. Lop-eared Rabbit</h3>
+                            <p class="text-xs text-brand-textMuted">Cute droopy ears laying softly along the cheeks.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80" alt="Lop Rabbit" class="rounded-2xl h-48 w-full object-cover">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>Fur Used:</strong> Light Beige / Mixed Brown</p>
+                            <p><strong>Eyes Used:</strong> Amber Orange / Rose Gold</p>
+                            <p><strong>Height:</strong> ~13 cm (Ear length: 7 cm)</p>
+                            <p><strong>Weight:</strong> ~90 grams</p>
+                            <p class="text-brand-textMuted leading-relaxed">The droopy ears give this rabbit an extraordinarily innocent and sleepy expression!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Rabbit -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow space-y-4">
+                    <div class="flex items-center gap-3 border-b border-brand-primary/10 pb-3">
+                        <span class="text-3xl">🐰</span>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-textDark">2. Rabbit</h3>
+                            <p class="text-xs text-brand-textMuted">Classic upright standing fluffy bunny ears.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=800&q=80" alt="Rabbit" class="rounded-2xl h-48 w-full object-cover">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>Fur Used:</strong> Snow White / Mocha Brown</p>
+                            <p><strong>Eyes Used:</strong> Ruby Pink / Crystal Diamond</p>
+                            <p><strong>Height:</strong> ~16 cm</p>
+                            <p><strong>Weight:</strong> ~85 grams</p>
+                            <p class="text-brand-textMuted leading-relaxed">Perky ears stuffed with lightweight cotton to stay upright while feeling ultra soft.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Cat -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow space-y-4">
+                    <div class="flex items-center gap-3 border-b border-brand-primary/10 pb-3">
+                        <span class="text-3xl">🐱</span>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-textDark">3. Cat</h3>
+                            <p class="text-xs text-brand-textMuted">Pointed triangular ears with optional whisker accents.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Cat Plushie" class="rounded-2xl h-48 w-full object-cover">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>Fur Used:</strong> Midnight Black / Snow White</p>
+                            <p><strong>Eyes Used:</strong> Emerald Green / Aqua Blue</p>
+                            <p><strong>Height:</strong> ~14 cm</p>
+                            <p><strong>Weight:</strong> ~80 grams</p>
+                            <p class="text-brand-textMuted leading-relaxed">Chubby face shape designed to resemble squishy kitty cheeks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Puppy -->
+                <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow space-y-4">
+                    <div class="flex items-center gap-3 border-b border-brand-primary/10 pb-3">
+                        <span class="text-3xl">🐶</span>
+                        <div>
+                            <h3 class="font-heading font-bold text-xl text-brand-textDark">4. Puppy</h3>
+                            <p class="text-xs text-brand-textMuted">Slightly curved folded puppy ears and cute button nose.</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 items-center">
+                        <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=800&q=80" alt="Puppy Plushie" class="rounded-2xl h-48 w-full object-cover">
+                        <div class="space-y-2 text-xs">
+                            <p><strong>Fur Used:</strong> Mocha Brown / Light Beige</p>
+                            <p><strong>Eyes Used:</strong> Silver / Gold</p>
+                            <p><strong>Height:</strong> ~14 cm</p>
+                            <p><strong>Weight:</strong> ~88 grams</p>
+                            <p class="text-brand-textMuted leading-relaxed">Floppy puppy ears that fold gently downward on the sides.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INSTAGRAM DM PHOTO INVITATION SECTION -->
+                <div class="bg-gradient-to-br from-brand-softPink via-white to-brand-softGreen p-6 md:p-8 rounded-3xl border border-brand-primary/20 custom-shadow text-center space-y-4">
+                    <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-3xl mx-auto shadow-md">
+                        📸
+                    </div>
+                    <h2 class="font-heading font-bold text-2xl text-brand-textDark">Have a Photo in Mind?</h2>
+                    <p class="text-xs md:text-sm text-brand-textMuted max-w-lg mx-auto leading-relaxed">
+                        If you have a photo of your real pet or a specific design in mind, you can order directly through <strong>Instagram DM</strong>!
+                    </p>
+
+                    <div class="p-4 bg-white/80 backdrop-blur-sm rounded-2xl max-w-md mx-auto text-left text-xs space-y-2 text-brand-textDark border border-brand-primary/10">
+                        <div class="flex items-start gap-2">
+                            <span class="text-brand-primary font-bold">✓</span>
+                            <span><strong>Unlisted Animals Available</strong></span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-brand-primary font-bold">✓</span>
+                            <span><strong>Unlisted Fur Colors</strong></span>
+                        </div>
+                        <div class="flex items-start gap-2">
+                            <span class="text-brand-primary font-bold">✓</span>
+                            <span>Send your photo directly to our Instagram DM to get a custom quote!</span>
+                        </div>
+                    </div>
+
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white font-bold text-sm shadow-md hover:opacity-95 transition">
+                        <i class="fab fa-instagram text-lg"></i> Send Photo via Instagram DM
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. REVIEWS PAGE -->
+        <section id="page-reviews" class="page-transition space-y-6 hidden">
+            <!-- Header Bar -->
+            <div class="flex items-center justify-between border-b border-brand-primary/10 pb-4">
+                <button onclick="showPage('home')" class="text-xs font-bold text-brand-textMuted hover:text-brand-primary flex items-center gap-1">
+                    ← Back to Home
+                </button>
+                <h1 class="font-heading font-bold text-xl text-brand-textDark">Adopted Plushie Reviews</h1>
+                <div></div>
+            </div>
+
+            <!-- Rating Summary -->
+            <div class="bg-white rounded-3xl p-6 border border-brand-primary/10 custom-shadow flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-yellow-400 text-xl">
+                        ★ ★ ★ ★ ★
+                    </div>
+                    <h2 class="font-heading font-bold text-2xl text-brand-textDark mt-1">4.98 out of 5.0</h2>
+                    <p class="text-xs text-brand-textMuted">Based on 120+ international adopters</p>
+                </div>
+                <div class="bg-brand-softPink p-3 rounded-2xl text-xs font-semibold text-brand-primary">
+                    100% Hand-knitted & Quality Verified
+                </div>
+            </div>
+
+            <!-- Reviews Feed -->
+            <div class="space-y-4">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-3xl p-5 border border-brand-primary/10 custom-shadow space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center font-bold text-pink-600 text-sm">
+                                E
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-brand-textDark">Emily R. <span class="text-xs text-gray-400 font-normal">🇺🇸 USA</span></h3>
+                                <div class="text-yellow-400 text-xs">★ ★ ★ ★ ★</div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">2 days ago</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted font-bold">Custom Order</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-softPink text-[10px] text-brand-primary font-bold">Lop-eared Rabbit</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted">Fur: Light Beige</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted">Eyes: Rose Gold</span>
+                    </div>
+                    <p class="text-xs text-brand-textDark leading-relaxed">
+                        I ordered a custom Lop Rabbit with light beige fur and rose gold eyes. It arrived packaged so sweetly! The fur is incredibly soft and squishy. Exactly like the photo I sent over DM.
+                    </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white rounded-3xl p-5 border border-brand-primary/10 custom-shadow space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center font-bold text-purple-600 text-sm">
+                                S
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-brand-textDark">Sophia K. <span class="text-xs text-gray-400 font-normal">🇬🇧 UK</span></h3>
+                                <div class="text-yellow-400 text-xs">★ ★ ★ ★ ★</div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">1 week ago</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-md bg-brand-softPink text-[10px] text-brand-primary font-bold">Marshie Plushie</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted">Ear Line: Rabbit</span>
+                    </div>
+                    <p class="text-xs text-brand-textDark leading-relaxed">
+                        Marshie sits on my desk while I work every day! Truly marshmallow-soft. Shipping to London took less than a week. Wonni was so helpful over Instagram DM.
+                    </p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white rounded-3xl p-5 border border-brand-primary/10 custom-shadow space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center font-bold text-green-600 text-sm">
+                                M
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-brand-textDark">Mia L. <span class="text-xs text-gray-400 font-normal">🇨🇦 Canada</span></h3>
+                                <div class="text-yellow-400 text-xs">★ ★ ★ ★ ★</div>
+                            </div>
+                        </div>
+                        <span class="text-[10px] text-gray-400">2 weeks ago</span>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted font-bold">Custom Order</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-softGreen text-[10px] text-brand-accent font-bold">Cat</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted">Fur: Midnight Black</span>
+                        <span class="px-2 py-0.5 rounded-md bg-brand-bg text-[10px] text-brand-textMuted">Eyes: Emerald Green</span>
+                    </div>
+                    <p class="text-xs text-brand-textDark leading-relaxed">
+                        Recreated my black cat Luna! The emerald green eyes shine so pretty in light. Worth every single penny.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PAYPAL CHECKOUT MODAL -->
+    <div id="paypal-modal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 custom-shadow relative">
+            <button onclick="closePaypalModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200">
+                ✕
+            </button>
+
+            <div class="text-center space-y-1">
+                <span class="text-3xl">🛍️</span>
+                <h3 class="font-heading font-bold text-xl text-brand-textDark">PayPal Checkout</h3>
+                <p id="modal-item-title" class="text-xs font-semibold text-brand-primary">Item Name</p>
+            </div>
+
+            <div class="bg-brand-bg p-4 rounded-2xl space-y-2 text-xs border border-brand-primary/10">
+                <div class="flex justify-between">
+                    <span class="text-brand-textMuted">Adoption Fee:</span>
+                    <span id="modal-item-price" class="font-bold text-brand-textDark">$0.00</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-brand-textMuted">Shipping:</span>
+                    <span class="font-bold text-green-600">FREE Worldwide</span>
+                </div>
+                <div id="modal-custom-specs" class="pt-2 border-t border-gray-200 text-[11px] text-brand-textMuted space-y-1 hidden">
+                    <!-- Custom choices injected here -->
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-[11px] text-center text-brand-textMuted">
+                    Clicking below redirects to secured PayPal payment gateway.
+                </p>
+                <button onclick="simulatePaypalSuccess()" class="w-full py-3.5 bg-[#FFC439] hover:bg-[#F2BA32] text-[#2C2E2F] font-bold rounded-2xl transition flex items-center justify-center gap-2 text-sm shadow">
+                    <i class="fab fa-paypal text-blue-900 text-lg"></i> Pay with PayPal
+                </button>
+            </div>
         </div>
-</main>
+    </div>
 
-<!-- Footer -->
-    <footer id="contact">
-        <p><strong>wonni Handmade Plushies</strong></p>
-        <p>Worldwide Shipping from South Korea 🇰🇷</p>
-        <p>Contact / Custom Orders: Instagram @wonni_plushies | email: contact@wonni.com</p>
-        <p style="margin-top: 15px; font-size: 12px; color: #B3A7A5;">&copy; 2026 wonni. All rights reserved.</p>
-    <footer>
-        <p><strong>wonni.crochet Adoption Center</strong></p>
-        <p>Handmade with love in South Korea 🇰🇷 | Free Worldwide Shipping Available</p>
-        <p style="margin-top: 15px; font-size: 12px; color: #8C7B78;">&copy; 2026 wonni.crochet. All rights reserved.</p>
-</footer>
 
-    <!-- Payment Handling Script -->
-<script>
-        function handleBuyNow(productName, price) {
-            alert("Redirecting to PayPal payment page for " + productName + " (" + price + ").\n\nAfter setting up your PayPal link in code, this button will open your checkout link directly!");
-        function adoptPlushie(name, price, speciesId, furId, eyeId) {
-            const species = document.getElementById(speciesId).value;
-            const eye = document.getElementById(eyeId).value;
-            const fur = furId ? document.getElementById(furId).value : 'Snow White';
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-brand-primary/10 py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-xl">🧶</span>
+                <span class="font-heading font-bold text-lg text-brand-textDark">wonni.crochet</span>
+            </div>
+            
+            <!-- Updated Footer Note Invitation -->
+            <p class="text-xs text-brand-textMuted max-w-md mx-auto leading-relaxed">
+                For custom inquiries or questions, please send us a Direct Message on Instagram.
+            </p>
+            
+            <!-- Updated Footer Button (No "Follow" text) -->
+            <div class="flex justify-center items-center">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 text-white text-xs font-bold shadow hover:opacity-90 transition flex items-center gap-2">
+                    <i class="fab fa-instagram text-base"></i> Send Us an Instagram DM
+                </a>
+            </div>
+            <p class="text-[10px] text-gray-400 pt-2">© 2026 wonni.crochet. All rights reserved.</p>
+        </div>
+    </footer>
 
-            // 주문 옵션 요약
-            const summary = `[Adoption Summary]\n- Item: ${name}\n- Type: ${species}\n- Fur: ${fur}\n- Eyes: ${eye}\n- Total Price: $${price} USD (Free Worldwide Shipping)`;
 
-            alert(summary + "\n\nRedirecting to PayPal for checkout...");
+    <script>
+        // DATA CHARTS (Defined first to eliminate Temporal Dead Zone / ReferenceError)
+        const FUR_COLORS = [
+            { name: "Snow White", hex: "#FFFFFF", border: "#E5E7EB" },
+            { name: "Light Beige", hex: "#F5EBE0", border: "#E2D4C3" },
+            { name: "Mocha Brown", hex: "#8D5B4C", border: "#72473A" },
+            { name: "Mixed Brown", hex: "#C49A6C", border: "#A87E52" },
+            { name: "Midnight Black", hex: "#222222", border: "#000000" },
+            { name: "Rainbow", hex: "linear-gradient(135deg, #FFB3BA, #FFDFBA, #FFFFBA, #BAFFC9, #BAE1FF)", border: "#CBD5E1" }
+        ];
 
-            // ⚠️ 본인의 페이팔 링크(예: paypal.me/사용자아이디)로 URL을 수정하시면 페이팔로 전환됩니다.
-            const paypalUsername = "your_paypal_username"; 
-            window.location.href = `https://www.paypal.me/${paypalUsername}/${price}`;
-}
-</script>
+        const EYE_COLORS = [
+            { name: "Silver", hex: "#C0C0C0" },
+            { name: "Gold", hex: "#FFD700" },
+            { name: "Ruby Pink", hex: "#FF1493" },
+            { name: "Aqua Blue", hex: "#00FFFF" },
+            { name: "Emerald Green", hex: "#50C878" },
+            { name: "Amethyst Purple", hex: "#9966CC" },
+            { name: "Amber Orange", hex: "#FFBF00" },
+            { name: "Rose Gold", hex: "#B76E79" },
+            { name: "Crystal Diamond", hex: "#E0F7FA" },
+            { name: "Midnight Blue", hex: "#191970" }
+        ];
+
+        // MARSHIE GALLERY IMAGES
+        const MARSHIE_IMAGES = [
+            "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1535572290543-960a8046f5af?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1584824486509-112e4181ff6b?auto=format&fit=crop&w=800&q=80"
+        ];
+        let currentMarshieIdx = 0;
+        let selectedMarshieEar = "Rabbit";
+        let selectedMarshieEye = EYE_COLORS[0]; // Safely accessed after EYE_COLORS declaration
+
+        // CURRENT SELECTION STATE FOR CUSTOM
+        let currentCustom = {
+            animal: "Cat",
+            emoji: "🐱",
+            fur: FUR_COLORS[0],
+            eye: EYE_COLORS[0]
+        };
+
+        // PAGE NAVIGATION
+        function showPage(pageId) {
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById('page-' + pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // CAROUSEL LOGIC
+        function setCarousel(type, index) {
+            if (type === 'marshie') {
+                currentMarshieIdx = index;
+                const imgEl = document.getElementById('marshie-main-img');
+                if (imgEl) imgEl.src = MARSHIE_IMAGES[currentMarshieIdx];
+                
+                const dotsContainer = document.getElementById('marshie-dots');
+                if (dotsContainer) {
+                    const dots = dotsContainer.querySelectorAll('span');
+                    dots.forEach((dot, idx) => {
+                        dot.className = idx === currentMarshieIdx 
+                            ? 'w-2 h-2 rounded-full bg-white transition-all' 
+                            : 'w-2 h-2 rounded-full bg-white/50 transition-all';
+                    });
+                }
+
+                document.querySelectorAll('.marshie-thumb').forEach((thumb, idx) => {
+                    if (idx === currentMarshieIdx) {
+                        thumb.classList.add('border-brand-primary');
+                        thumb.classList.remove('border-transparent', 'opacity-70');
+                    } else {
+                        thumb.classList.remove('border-brand-primary');
+                        thumb.classList.add('border-transparent', 'opacity-70');
+                    }
+                });
+            }
+        }
+
+        function prevCarousel(type) {
+            if (type === 'marshie') {
+                currentMarshieIdx = (currentMarshieIdx - 1 + MARSHIE_IMAGES.length) % MARSHIE_IMAGES.length;
+                setCarousel('marshie', currentMarshieIdx);
+            }
+        }
+
+        function nextCarousel(type) {
+            if (type === 'marshie') {
+                currentMarshieIdx = (currentMarshieIdx + 1) % MARSHIE_IMAGES.length;
+                setCarousel('marshie', currentMarshieIdx);
+            }
+        }
+
+        function selectMarshieEar(earType, element) {
+            selectedMarshieEar = earType;
+            document.querySelectorAll('.marshie-ear-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-brand-primary', 'bg-brand-softPink/30');
+                btn.classList.add('border-gray-200');
+            });
+            element.classList.add('active', 'border-brand-primary', 'bg-brand-softPink/30');
+            element.classList.remove('border-gray-200');
+        }
+
+        function selectMarshieEye(eyeObj, element) {
+            selectedMarshieEye = eyeObj;
+            document.querySelectorAll('.marshie-eye-btn').forEach(btn => {
+                btn.classList.remove('border-brand-primary', 'bg-brand-softPink/30');
+                btn.classList.add('border-gray-200');
+            });
+            element.classList.add('border-brand-primary', 'bg-brand-softPink/30');
+            element.classList.remove('border-gray-200');
+        }
+
+        function selectAnimal(animalName, emoji, element) {
+            currentCustom.animal = animalName;
+            currentCustom.emoji = emoji;
+            document.querySelectorAll('.animal-btn').forEach(btn => {
+                btn.classList.remove('active', 'border-brand-primary', 'bg-brand-softPink/30');
+                btn.classList.add('border-gray-200');
+            });
+            element.classList.add('active', 'border-brand-primary', 'bg-brand-softPink/30');
+            element.classList.remove('border-gray-200');
+            updatePreview();
+        }
+
+        function selectFur(furObj, element) {
+            currentCustom.fur = furObj;
+            document.querySelectorAll('.fur-btn').forEach(btn => {
+                btn.classList.remove('border-brand-primary', 'bg-brand-softPink/30');
+                btn.classList.add('border-gray-200');
+            });
+            element.classList.add('border-brand-primary', 'bg-brand-softPink/30');
+            element.classList.remove('border-gray-200');
+            updatePreview();
+        }
+
+        function selectEye(eyeObj, element) {
+            currentCustom.eye = eyeObj;
+            document.querySelectorAll('.eye-btn').forEach(btn => {
+                btn.classList.remove('border-brand-primary', 'bg-brand-softPink/30');
+                btn.classList.add('border-gray-200');
+            });
+            element.classList.add('border-brand-primary', 'bg-brand-softPink/30');
+            element.classList.remove('border-gray-200');
+            updatePreview();
+        }
+
+        function updatePreview() {
+            const avatar = document.getElementById('builder-avatar');
+            const emojiEl = document.getElementById('builder-animal-emoji');
+            const eyeLeft = document.getElementById('builder-eye-left');
+            const eyeRight = document.getElementById('builder-eye-right');
+            const summary = document.getElementById('builder-summary');
+
+            if (avatar && currentCustom.fur) {
+                avatar.style.background = currentCustom.fur.hex;
+            }
+            if (emojiEl) {
+                emojiEl.innerText = currentCustom.emoji;
+            }
+            if (eyeLeft && eyeRight && currentCustom.eye) {
+                eyeLeft.style.backgroundColor = currentCustom.eye.hex;
+                eyeRight.style.backgroundColor = currentCustom.eye.hex;
+            }
+            if (summary) {
+                summary.innerText = `${currentCustom.animal} — ${currentCustom.fur ? currentCustom.fur.name : ''} / ${currentCustom.eye ? currentCustom.eye.name : ''} Eyes`;
+            }
+        }
+
+        function initBuilder() {
+            // Populate Marshie Eye Options (ALL 10)
+            const marshieEyeGrid = document.getElementById('marshie-eye-options-grid');
+            if (marshieEyeGrid) {
+                marshieEyeGrid.innerHTML = '';
+                EYE_COLORS.forEach((eye, index) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `marshie-eye-btn p-1.5 rounded-xl border-2 text-left flex items-center gap-1.5 transition text-xs font-semibold ${index === 0 ? 'border-brand-primary bg-brand-softPink/30' : 'border-gray-200'}`;
+                    btn.onclick = () => selectMarshieEye(eye, btn);
+                    btn.innerHTML = `
+                        <span class="w-3.5 h-3.5 rounded-full border shadow-sm flex-shrink-0" style="background-color: ${eye.hex}"></span>
+                        <span class="truncate text-[9px]">${eye.name}</span>
+                    `;
+                    marshieEyeGrid.appendChild(btn);
+                });
+            }
+
+            // Populate Custom Fur Options
+            const furGrid = document.getElementById('fur-options-grid');
+            if (furGrid) {
+                furGrid.innerHTML = '';
+                FUR_COLORS.forEach((fur, index) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `fur-btn p-2 rounded-xl border-2 text-left flex items-center gap-1.5 transition text-xs font-semibold ${index === 0 ? 'border-brand-primary bg-brand-softPink/30' : 'border-gray-200'}`;
+                    btn.onclick = () => selectFur(fur, btn);
+                    btn.innerHTML = `
+                        <span class="w-4 h-4 rounded-full border shadow-sm flex-shrink-0" style="background: ${fur.hex}; border-color: ${fur.border}"></span>
+                        <span class="truncate text-[10px]">${fur.name}</span>
+                    `;
+                    furGrid.appendChild(btn);
+                });
+            }
+
+            // Populate Custom Eye Options (ALL 10)
+            const eyeGrid = document.getElementById('eye-options-grid');
+            if (eyeGrid) {
+                eyeGrid.innerHTML = '';
+                EYE_COLORS.forEach((eye, index) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = `eye-btn p-1.5 rounded-xl border-2 text-left flex items-center gap-1.5 transition text-xs font-semibold ${index === 0 ? 'border-brand-primary bg-brand-softPink/30' : 'border-gray-200'}`;
+                    btn.onclick = () => selectEye(eye, btn);
+                    btn.innerHTML = `
+                        <span class="w-3.5 h-3.5 rounded-full border shadow-sm flex-shrink-0" style="background-color: ${eye.hex}"></span>
+                        <span class="truncate text-[9px]">${eye.name}</span>
+                    `;
+                    eyeGrid.appendChild(btn);
+                });
+            }
+
+            updatePreview();
+        }
+
+        function openMarshiePaypalModal() {
+            document.getElementById('modal-item-title').innerText = `Marshie Plushie (${selectedMarshieEar})`;
+            document.getElementById('modal-item-price').innerText = `$45.00`;
+            
+            const specsEl = document.getElementById('modal-custom-specs');
+            specsEl.innerHTML = `
+                <p>• Ear Line: <strong>${selectedMarshieEar}</strong></p>
+                <p>• Fur Color: <strong>Snow White (Fixed)</strong></p>
+                <p>• Eye Color: <strong>${selectedMarshieEye.name}</strong></p>
+            `;
+            specsEl.classList.remove('hidden');
+            document.getElementById('paypal-modal').classList.remove('hidden');
+        }
+
+        function openCustomPaypalModal() {
+            document.getElementById('modal-item-title').innerText = `Custom Plushie Order (${currentCustom.animal})`;
+            document.getElementById('modal-item-price').innerText = `$55.00`;
+            
+            const specsEl = document.getElementById('modal-custom-specs');
+            specsEl.innerHTML = `
+                <p>• Animal: <strong>${currentCustom.animal}</strong></p>
+                <p>• Fur Color: <strong>${currentCustom.fur.name}</strong></p>
+                <p>• Eye Color: <strong>${currentCustom.eye.name}</strong></p>
+            `;
+            specsEl.classList.remove('hidden');
+            document.getElementById('paypal-modal').classList.remove('hidden');
+        }
+
+        function closePaypalModal() {
+            document.getElementById('paypal-modal').classList.add('hidden');
+        }
+
+        function simulatePaypalSuccess() {
+            alert('Redirecting to PayPal securely... (Demo Mode)');
+            closePaypalModal();
+        }
+
+        // INIT ON LOAD
+        window.onload = function() {
+            initBuilder();
+        };
+    </script>
 </body>
+</html>
